@@ -12,9 +12,9 @@ module DFF(
 
 	// No need to implement this chip
 	// This chip is implemented in verilog using reg-variables
-	reg out;
+	reg out_reg;
 	always @(posedge clk)
-		if (in) out <= 1'b1;
-		else out <= 1'b0;
+		out_reg <= in;
+	assign out = out_reg;
 
 endmodule

@@ -16,5 +16,12 @@ module BitShift8L(
 );
 
 	// Put your code here:
+	reg [7:0] out_reg;
+	always @(posedge clk) begin
+		if (load) out_reg <= in;
+		else if (shift) out_reg <= {out_reg[6:0], inLSB};
+		else out_reg <= out_reg;
+	end
+	assign out = out_reg;
 
 endmodule

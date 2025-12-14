@@ -14,5 +14,10 @@ module RAM512(
 );
 	
 	// Put your code here:
+	reg [15:0] mem [0:511];
+	always @(posedge clk) begin
+		if (load) mem[address] <= in;
+	end
+	assign out = mem[address];
 
 endmodule

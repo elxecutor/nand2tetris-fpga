@@ -16,5 +16,12 @@ module BitShift9R(
 );
 
 	// Put your code here:
+	reg [8:0] out_reg;
+	always @(posedge clk) begin
+		if (load) out_reg <= in;
+		else if (shift) out_reg <= {inMSB, out_reg[8:1]};
+		else out_reg <= out_reg;
+	end
+	assign out = out_reg;
 
 endmodule
