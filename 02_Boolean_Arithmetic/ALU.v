@@ -37,5 +37,14 @@ module ALU(
 );
 
 	// Put your code here:
+	wire [15:0] x1 = zx ? 16'b0 : x;
+	wire [15:0] x2 = nx ? ~x1 : x1;
+	wire [15:0] y1 = zy ? 16'b0 : y;
+	wire [15:0] y2 = ny ? ~y1 : y1;
+	wire [15:0] out1 = f ? (x2 + y2) : (x2 & y2);
+	wire [15:0] out2 = no ? ~out1 : out1;
+	assign out = out2;
+	assign zr = (out2 == 16'b0);
+	assign ng = out2[15];
 
 endmodule

@@ -11,5 +11,7 @@ module HalfAdder(
 );
 
 	// Put your code here:
+	assign sum = a ^ b;
+	assign carry = a & b;
 
 endmodule
