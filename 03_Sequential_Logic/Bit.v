@@ -13,8 +13,10 @@ module Bit(
 );
 
 	// Put your code here:
-	wire mux_out;
-	Mux m(.a(out), .b(in), .sel(load), .out(mux_out));
-	DFF d(.clk(clk), .in(mux_out), .out(out));
+	reg out_reg;
+	always @(posedge clk) begin
+		if (load) out_reg <= in;
+	end
+	assign out = out_reg;
 
 endmodule
