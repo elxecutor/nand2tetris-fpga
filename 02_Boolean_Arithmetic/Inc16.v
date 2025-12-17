@@ -10,6 +10,6 @@ module Inc16(
 );
 
 	// Put your code here:
-	Add16 add(.a(in), .b(16'h0001), .out(out));
+	assign out = in + 1;
 
 endmodule
