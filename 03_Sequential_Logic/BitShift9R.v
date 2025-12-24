@@ -16,12 +16,24 @@ module BitShift9R(
 );
 
 	// Put your code here:
-	reg [8:0] out_reg;
-	always @(posedge clk) begin
-		if (load) out_reg <= in;
-		else if (shift) out_reg <= {inMSB, out_reg[8:1]};
-		else out_reg <= out_reg;
-	end
-	assign out = out_reg;
+	wire [8:0] next_out;
+	assign next_out[0] = load ? in[0] : (shift ? out[1] : out[0]);
+	assign next_out[1] = load ? in[1] : (shift ? out[2] : out[1]);
+	assign next_out[2] = load ? in[2] : (shift ? out[3] : out[2]);
+	assign next_out[3] = load ? in[3] : (shift ? out[4] : out[3]);
+	assign next_out[4] = load ? in[4] : (shift ? out[5] : out[4]);
+	assign next_out[5] = load ? in[5] : (shift ? out[6] : out[5]);
+	assign next_out[6] = load ? in[6] : (shift ? out[7] : out[6]);
+	assign next_out[7] = load ? in[7] : (shift ? out[8] : out[7]);
+	assign next_out[8] = load ? in[8] : (shift ? inMSB : out[8]);
+	DFF dff0(.clk(clk), .in(next_out[0]), .out(out[0]));
+	DFF dff1(.clk(clk), .in(next_out[1]), .out(out[1]));
+	DFF dff2(.clk(clk), .in(next_out[2]), .out(out[2]));
+	DFF dff3(.clk(clk), .in(next_out[3]), .out(out[3]));
+	DFF dff4(.clk(clk), .in(next_out[4]), .out(out[4]));
+	DFF dff5(.clk(clk), .in(next_out[5]), .out(out[5]));
+	DFF dff6(.clk(clk), .in(next_out[6]), .out(out[6]));
+	DFF dff7(.clk(clk), .in(next_out[7]), .out(out[7]));
+	DFF dff8(.clk(clk), .in(next_out[8]), .out(out[8]));
 
 endmodule

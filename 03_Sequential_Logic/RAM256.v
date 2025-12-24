@@ -17,8 +17,8 @@ module RAM256(
 	// RAM is implemented using BRAM of iCE40
 	reg [15:0] regRAM [0:255]; 
 	always @(posedge clk)
-		if (load) regRAM[address[7:0]] <= in;
+		if (load) regRAM[address] <= in;
 
-	assign out = regRAM[address[7:0]];
+	assign out = regRAM[address];
 
 endmodule
