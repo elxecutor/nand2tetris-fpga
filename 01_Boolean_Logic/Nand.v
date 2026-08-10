@@ -13,4 +13,5 @@ module Nand(
 
 	// No need to implement this chip
 	// This chip is implemented using verilog primitives
+	nand(out, a, b);
 endmodule
