@@ -10,7 +10,10 @@ module Or(
 	input b,
 	output out
 );
-
 	// Put your code here:
+ 	wire n_a, n_b;
 
+	nand(n_a, a, a);
+	nand(n_b, b, b);
+	nand(out, n_a, n_b);
 endmodule
