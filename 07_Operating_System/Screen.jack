@@ -1,0 +1,128 @@
+/**
+* A library of functions for displaying graphics on the screen.
+* The connected LCD physical screen consists of 320 rows (indexed 0..319, top to bottom)
+* of 240 pixels each (indexed 0..239, left to right). The top left pixel on 
+* the screen is indexed (0,0). Every pixel can be set to a 16 bit color code composed of
+* RGB parts of 5 bit red, 6 bit green and 5 bit blue: rrrrrggggggbbbbb.
+*/
+class Screen {
+
+    /** Initializes the Screen. */
+    function void init(int addr){
+    }
+
+    /** Erases the entire screen. */
+    function void clearScreen(){
+    }
+
+    /** Sets the current pen color, to be used for all subsequent drawXXX
+     *  commands. Colors are represented by 16 bit RGB values with
+     *  binary representation: rrrrrggggggbbbbb */
+    function void setPenColor(int color){
+    }
+
+    /** Sets the current back ground color, to be used for clearScreen()
+     *  and drawBitMap() commands.
+     *  Colors are represented by 16 bit RGB values: rrrrrggggggbbbbb */
+    function void setBackColor(int color){
+    }
+
+    /** Draws the (x,y) pixel, using the current pen color. */
+    function void drawPixel(int x,int y){
+    }
+
+    /** Draws a line from pixel (x1,y1) to pixel (x2,y2), using the current
+     *  pen color. */
+    function void drawLine(int x1,int y1,int x2,int y2){
+    }
+
+    /** Draws a filled rectangle whose top left corner is (x1, y1)
+     * and bottom right corner is (x2,y2), using the current pen color. */
+    function void drawRectangle(int x1, int y1, int x2, int y2){
+    }
+
+    /** Draws a filled circle of radius r<=181 around (x,y), using the
+     *  current pen color. */
+    function void drawCircle(int x, int y, int r){
+    }
+
+    /** sets the Window to a rectangle with upper left corner (x1,y1)
+     * and lower right corner (x2,y2). The next w*h calls to
+     * writeData16(int color) will paint the w*h pixels in the rectangle
+     * in the corresponding color.*/ 
+    function void setWindow(int x1, int y1, int x2, int y2){
+    }
+
+    /** sets the rgb color for the next pixel in the rectangle set by
+     * setWindow(int x1, int y1, int x2, int y2).*/
+    function void writeData16(int color){
+    }
+
+    /** writes 8 bit data to LCD with DCX wire set to high. */
+    function void writeData(int data){
+    }
+
+    /** writes the 8 bit command with DCX wire set to low */
+    function void writeCommand(int command){
+    }
+
+    /** draws the BitMap into the rectangle with upper left corner (x1,y1)
+     *  and lower right corner (x2,y2) using the pen color for all 1s and the
+     *  back color for all 0s in the BitMap. BitMap is an Array of h integers
+     *  representing up to 16 pixel in the row. The rectangle is limited
+     *  to maximal 16 pixels in width.*/ 
+    function void drawBitMap(int x1, int y1, int x2, int y2, Array map){
+    }
+
+    /** RGB values for various colors. */
+    function int BLACK(){
+    }
+    function int NAVY(){
+        return 30;  //00000 000000 11110
+    }
+    function int BLUE(){
+        return 31;  //00000 000000 11111
+    }
+    function int LIME(){
+        return 2016; //00000 111111 00000
+    }
+    function int GREEN(){
+        return 1920; //00000 111100 00000
+    }
+    function int CYAN(){
+        return 2047; //00000 111111 11111
+    }
+    function int MAROON(){
+        return -4096; //11110 000000 00000
+    }
+    function int PURPLE(){
+        return -4066; //11110 000000 11110
+    }
+    function int OLIVE(){
+        return -2176; //11110 111100 00000
+    }
+    function int DARKGREY(){
+        return -14824; //11000 110000 11000
+    }
+    function int TEAL(){
+        return 1950; //00000 111000 11100
+    }
+    function int LIGHTGREY(){
+        return -6372; //11100 111000 11100
+    }
+    function int RED(){
+        return -2048; //11111 000000 00000
+    }
+    function int MAGENTA(){
+        return -2017; //11111 000000 11111
+    }
+    function int YELLOW(){
+        return -32; //11111 111111 00000
+    }
+    function int ORANGE(){
+        return -128; //11111 111000 00000
+    }
+    function int WHITE(){
+        return -1; //11111 111111 11111
+    }
+}

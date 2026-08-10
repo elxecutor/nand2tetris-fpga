@@ -1,0 +1,106 @@
+/**
+ * Represents a Tetris game.
+ */
+class TetrisGame {
+
+    	field String S_next;
+    	field String S_score;
+    	field String S_game;
+		field Tile tile;          // the tile
+		field Tile next;
+    	field boolean exit;       // true when the game is over
+    	field int score;          // the current score.
+		field boolean update;
+		field Grid grid;
+		field int time;
+		field Menu menu;
+	
+    /** Constructs a new Tetris game. */
+    constructor TetrisGame new() {
+	    let score = 0;
+		let S_next = "Next:";
+		let S_score = "Score:";
+		let S_game = "Game over!";
+	    do Screen.clearScreen();
+		let menu =  Menu.new("  <-","   L","  R","  ->");
+		do menu.draw();
+		do Screen.setPenColor(0);
+		do Output.moveCursor(4,20);
+	    do Output.printString(S_next);
+		do Output.moveCursor(13,20);
+	    do Output.printString(S_score);
+		do Output.moveCursor(15,21);
+	    do Output.printInt(score);
+	    let exit = false;
+		let grid = Grid.new();
+		let next = Tile.new();
+		do next.draw();
+		let time = 2000;
+        return this;
+    }
+
+    /** Deallocates the object's memory. */
+    method void dispose() {
+		do S_next.dispose();
+		do S_score.dispose();
+		do S_game.dispose();
+		do grid.dispose();
+		do next.dispose();
+		do menu.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+	method void score(int r){
+		if (r=1) {let score = score + 40; }
+		if (r=2) {let score = score + 100; }
+		if (r=3) {let score = score + 300; }
+		if (r=4) {let score = score +1200; }
+		do Screen.setPenColor(0);
+		do Output.moveCursor(15,21);
+	    	do Output.printInt(score);
+		return;	
+	}
+    /** Starts the game, and handles inputs from the user that control
+     *  the bat's movement direction. */
+    method void run() {
+		var int p;
+		let exit = false;
+		let tile = next;
+		do tile.span(grid);
+		let next = Tile.new();
+		do next.draw();
+		let exit = false;
+		while (~exit){
+			let p = menu.getButton();
+	    	if (p = 3) { do tile.moveRight();}
+	    	if (p = 2) { do tile.rotateRight();}
+	    	if (p = 1) { do tile.rotateLeft();}
+    		if (p = 0) { do tile.moveLeft();}
+		let time = time -1;
+		if (time=0){	
+				if (~(tile.moveDown())){
+					do score(tile.getScore());
+					do tile.dispose();
+					let tile = next;
+					if (~(next.span(grid))) {
+						let exit = true;
+					} else {
+						let next = Tile.new();
+						do next.draw();
+					}
+				}
+
+
+	    	if (exit) {
+				do Screen.setPenColor(0);
+            	do Output.moveCursor(10,5);
+	        	do Output.printString(S_game);
+	    	}
+		let time = 2000;
+		}
+        }
+        return;
+    }
+	
+}

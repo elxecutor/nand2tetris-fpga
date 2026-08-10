@@ -1,0 +1,29 @@
+/** A library to read touch events from the resistive touch panel controller
+ * AR1021.*/
+class Touch{
+
+    function void init(int addr){
+    }
+
+    /** writes 8 bits of c to RTP and returns the response of RTP.
+     *  also responsable for the inter byte delay of approx. 50 us */
+    function int writeRTP(int c){
+    }
+
+    /** trys to read a valid touch event report. returns true on success.
+     *  returns false, if no valid touch event is available. */
+    function boolean getEvent(){
+    }
+
+    /** returns the x coordinate in the range [0..4095] of the last touch event report */
+    function int getX(){
+    }
+
+    /** returns the x coordinate in the range [0..4095] of the last touch event report */
+    function int getY(){
+    }
+
+    /** returns the pen value (1 = down, 0 = up) of the last touch event report */
+    function boolean getPen(){
+    }
+}

@@ -1,0 +1,11 @@
+class Main{
+
+    function void main() {
+		while(true){
+			do GPIO.writeLed(GPIO.readLed()+1);
+			do Sys.wait(1);
+		}
+		return;
+	}
+
+}

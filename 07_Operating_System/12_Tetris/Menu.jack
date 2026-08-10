@@ -1,0 +1,70 @@
+class Menu{
+	field Array button;
+	field int last;
+	field boolean pressed;
+	
+	constructor void new(String t0, String t1, String t2, String t3){
+		let button = Array.new(4);
+		let button[0] = Button.new(0,t0);
+		let button[1] = Button.new(1,t1);
+		let button[2] = Button.new(2,t2);
+		let button[3] = Button.new(3,t3);
+		let last = 0;
+		let pressed = false;
+		return this;
+	}
+	
+	method void dispose(){
+		var Button b;
+		var int i;
+		let i=0;
+		while (i<4){
+			let b=button[i];
+			do b.dispose();
+			let i=i+1;
+		}
+		do button.dispose();
+		do Memory.deAlloc(this);
+		return;
+	}
+
+	method void draw(){
+		var Button b;
+		var int i;
+		let i=0;
+		while (i<4){
+			let b=button[i];
+			do b.draw(false);
+			let i=i+1;
+		}
+		return;
+	}	
+	method int getButton(){
+		var boolean t;
+		var Button b;
+		let t = Touch.getEvent();
+		if (~t){
+			return -1;
+		}
+		if (pressed){
+			if (Touch.getPen()=0) {
+				let pressed = false;
+				let b=button[last];
+				do b.draw(false);
+			}
+		} else {
+			if ((Touch.getPen()=1) & (Touch.getY()<1024)){
+	    		let pressed = true;
+				let b = button[last];
+				do b.draw(false);
+				let last = Touch.getX()/1024;
+				let b = button[last];
+				do b.draw(true);
+				return last;
+			}
+			return -1;
+		}
+		return -1;
+	}
+	
+}

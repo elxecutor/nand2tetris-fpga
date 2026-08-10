@@ -1,0 +1,11 @@
+`include "../../05_Computer_Architecture/Memory.v"
+
+`include "../../06_IO_Devices/HACK.v"
+`include "../../06_IO_Devices/UartTX.v"
+`include "../../06_IO_Devices/UartRX.v"
+`include "../../06_IO_Devices/SPI.v"
+`include "../../06_IO_Devices/SRAM_D.v"
+`include "../../06_IO_Devices/GO.v"
+`include "../../06_IO_Devices/InOut.v"
+`include "../../06_IO_Devices/LCD.v"
+`include "../../06_IO_Devices/RTP.v"

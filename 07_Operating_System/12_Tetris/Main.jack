@@ -1,0 +1,67 @@
+/**
+ * The main class of the Tetris game.
+ */
+class Main {
+	static Tile tile;
+	static Menu menu;
+	static TetrisGame game;
+
+    /** Initializes a Tetris game and starts running it. */
+    function void main() {
+		var int x;
+		var int time;
+		let menu = Menu.new(null,null,null," Play");
+		do Tile.init();
+		let time = 10000;
+		while(time > 0){
+			if (time = 10000){
+				do Main.drawStart();
+				do Main.drawTile();
+				do menu.draw();
+			}
+			if (time = 1){
+				do Main.clearTile();
+				do Main.drawTile();
+				let time = 10000;
+			}
+			let x = menu.getButton();
+			if (x = 3) {
+				do Main.clearTile();
+        		let game = TetrisGame.new();
+        		do game.run();
+        		do game.dispose();
+				do menu.draw();
+				do Sys.wait(5000);
+				let time = 20000;
+			}
+			let time = time - 1;
+		}
+        return;
+    }
+
+	function void drawTile(){
+		let tile = Tile.new();
+		do tile.move(6,12);
+		do tile.draw();
+		return;
+	}
+
+	function void clearTile(){
+		do tile.erase();
+		do tile.dispose();
+		return;
+	}
+
+	function void drawStart(){
+		var String n2t;
+		var String hv;
+		let n2t = "nand2tetris-fpga";
+		do Screen.clearScreen();
+		do Screen.setPenColor(0);
+		do Output.moveCursor(6,7);
+		do Output.printString(n2t);
+		do n2t.dispose();
+		return;
+	}
+	
+}

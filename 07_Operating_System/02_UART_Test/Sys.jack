@@ -1,0 +1,17 @@
+/**
+ * A library that supports various program execution services.
+ */
+class Sys {
+
+    /** Performs all the initializations required by the OS. */
+    function void init() {
+		do UART.init(4098);
+		do UART.writeChar(71);
+		do UART.writeChar(79);
+		while (true){
+			do UART.writeChar(UART.readChar());
+		}
+		return;
+	}
+
+}

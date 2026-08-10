@@ -1,0 +1,17 @@
+class Main{
+	
+	function void main(){
+		while (true){
+			if (Touch.getEvent()) {
+				do StdIO.printInt(Touch.getX());
+				do StdIO.printString(" ");
+				do StdIO.printInt(Touch.getY());
+				do StdIO.printString(" ");
+				do StdIO.printInt(Touch.getPen());
+				do StdIO.println();
+			}	
+		}	
+		return;
+	}
+	
+}

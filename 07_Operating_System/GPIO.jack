@@ -1,0 +1,22 @@
+/**
+ * This library provides access to BUT and LED.
+ */
+class GPIO {
+ 
+    /** Initialize LED and BUT. LED is memory mapped to addr.
+     *  BUT is memory mapepd to addr +1  */
+    function void init(int addr){
+    }
+
+    /** Returns the value of LED. */
+    function int readLed(){
+    }
+
+    /** Write c to LED */
+    function void writeLed(int value){
+    }
+
+    /** Returns the value of BUT */
+    function int readBut() {
+    }
+}

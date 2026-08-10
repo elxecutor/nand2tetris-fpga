@@ -1,0 +1,25 @@
+class GPIO {
+	static Array gpio;
+ 
+	function void init(int addr){
+		let gpio = addr;
+		return;
+	}
+  
+	function boolean readBut() {
+		if (gpio[1] & 2){
+			return false;
+		}
+		return true;
+   	}
+
+   	function void writeLed(int c){
+      		let gpio[0] = c;
+		return;
+   	}
+   	
+	function void readLed(){
+      	return gpio[0];
+   	}
+	
+}

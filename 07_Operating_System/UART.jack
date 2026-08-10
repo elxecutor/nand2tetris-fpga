@@ -1,0 +1,18 @@
+/**
+ * Library that provides character based access to UART_TX and UART_RX
+ */
+class UART {
+ 
+    /** initializes UART. UART_TX is memory mapped at addr.
+     *  UART_RX is memory mapped at addr+1 */
+    function void init(int addr){
+    }
+
+    /** wait until UART_RX receives the next char and return the value. */
+    function int readChar() {
+    }
+
+    /** wait for UART_TX to be ready to send next byte and send c. */
+    function void writeChar(int c){
+    }
+}

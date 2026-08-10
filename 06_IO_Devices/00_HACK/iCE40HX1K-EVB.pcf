@@ -1,0 +1,68 @@
+# physical constrain file
+# assign io-pins to pin numbering of iCE40-HX1K on olimex board iCE40HX1K-EVB
+# compare to the schematic of the board and the datasheet of fpga
+
+set_io CLK 15		# SYSCLOCK 100 MHz
+
+set_io BUT[0] 41	# BUT1
+set_io BUT[1] 42	# BUT2
+
+set_io LED[0] 40	# LED1
+set_io LED[1] 51	# LED2
+
+set_io UART_RX 36	# PIO2_8/RxD connected to pin 3 of UEXT (PGM)
+set_io UART_TX 37	# PIO2_9/TxD connected to pin 4 of UEXT (PGM)
+
+set_io SPI_SDO 45	# iCE40-SDO
+set_io SPI_SDI	46	# iCE40-SDI
+set_io SPI_SCK  48	# iCE40-SCK
+set_io SPI_CSX  49	# iCE40-SS_B
+
+set_io SRAM_ADDR[0] 79		# SA0
+set_io SRAM_ADDR[1] 80		# SA1
+set_io SRAM_ADDR[2] 81		# SA2
+set_io SRAM_ADDR[3] 82		# SA3
+set_io SRAM_ADDR[4] 83  	# SA4
+set_io SRAM_ADDR[5] 85  	# SA5
+set_io SRAM_ADDR[6] 86  	# SA6
+set_io SRAM_ADDR[7] 87  	# SA7
+set_io SRAM_ADDR[8] 89  	# SA8
+set_io SRAM_ADDR[9] 90  	# SA9
+set_io SRAM_ADDR[10] 91		# SA10
+set_io SRAM_ADDR[11] 93		# SA11
+set_io SRAM_ADDR[12] 94		# SA12
+set_io SRAM_ADDR[13] 95		# SA13
+set_io SRAM_ADDR[14] 96		# SA14
+set_io SRAM_ADDR[15] 97		# SA15
+set_io SRAM_ADDR[16] 99		# SA16
+set_io SRAM_ADDR[17] 100	# SA17
+
+set_io SRAM_CSX 78		# SRAM_#CS
+set_io SRAM_OEX 74		# SRAM_#OE
+set_io SRAM_WEX 73		# SRAM_#WE
+
+set_io SRAM_DATA[0] 62	# SD0
+set_io SRAM_DATA[1] 63	# SD1
+set_io SRAM_DATA[2] 64	# SD2
+set_io SRAM_DATA[3] 65	# SD3
+set_io SRAM_DATA[4] 66	# SD4
+set_io SRAM_DATA[5] 68	# SD5
+set_io SRAM_DATA[6] 69	# SD6
+set_io SRAM_DATA[7] 71	# SD7
+set_io SRAM_DATA[8] 72	# SD8
+set_io SRAM_DATA[9] 60	# SD9
+set_io SRAM_DATA[10] 59	# SD10
+set_io SRAM_DATA[11] 57	# SD11
+set_io SRAM_DATA[12] 56	# SD12
+set_io SRAM_DATA[13] 54	# SD13
+set_io SRAM_DATA[14] 53	# SD14
+set_io SRAM_DATA[15] 52	# SD15
+
+set_io LCD_DCX 1		# PIO3_1A connected to pin 5 of GPIO1
+set_io LCD_SDO 2		# PIO3_1B connected to pin 7 of GPIO1
+set_io LCD_SCK 3		# PIO3_2A connected to pin 9 of GPIO1
+set_io LCD_CSX 4		# PIO3_2B connected to pin 11 of GPIO1
+
+set_io RTP_SDI 7		# PIO3_3A connected to pin 13 of GPIO1
+set_io RTP_SDO 8		# PIO3_3B connected to pin 15 of GPIO1
+set_io RTP_SCK 9		# PIO3_5A connected to pin 17 of GPIO1

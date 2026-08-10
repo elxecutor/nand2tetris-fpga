@@ -1,0 +1,33 @@
+/**
+* A library of functions for text based input and output over UART
+*/
+class StdIO {
+
+    /** Prints the String s to UART_TX and disposes the String s */
+    function void printString(String s){
+    }
+
+    /** Prints the decimal representation of i to UART_TX */
+    function void printInt(int i) {
+    }
+
+    /** Prints the new line character to UART_TX */
+    function void println(){
+    }
+
+    /**
+     * Sends the message to UART_TX, disposes the message,
+     * reads from UART_RX the entered text until a newline character
+     * is detected, echoes the text to UART_TX, and returns its integer
+     * value (until the first non-digit character in the entered text is
+     * detected). Also handles user backspaces. */
+    function int readInt(String message) {
+    }
+
+    /**
+     * Sends the message to UART_TX, reads from UART_RX the entered
+     * text until a newline character is detected, echoes the text
+     * to the UART_TX, and returns its value. Also handles user backspaces. */
+    function String readLine(String message) {
+    }
+}

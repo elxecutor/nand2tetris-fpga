@@ -1,0 +1,94 @@
+class Main {
+	
+	function void main() {
+		var int x;
+		var int vx;
+		var Array map;
+		do Screen.setPenColor(Screen.BLACK());
+		do Screen.drawRectangle(5,5,35,35);
+		do Screen.setPenColor(Screen.NAVY());
+		do Screen.drawRectangle(45,5,75,35);
+		do Screen.setPenColor(Screen.BLUE());
+		do Screen.drawRectangle(85,5,115,35);
+		do Screen.setPenColor(Screen.GREEN());
+		do Screen.drawRectangle(125,5,155,35);
+		do Screen.setPenColor(Screen.CYAN());
+		do Screen.drawRectangle(165,5,195,35);
+		do Screen.setPenColor(Screen.MAROON());
+		do Screen.drawRectangle(205,5,235,35);
+		do Screen.setPenColor(Screen.PURPLE());
+		do Screen.drawRectangle(5,45,35,75);
+		do Screen.setPenColor(Screen.OLIVE());
+		do Screen.drawRectangle(45,45,75,75);
+		do Screen.setPenColor(Screen.MAGENTA());
+		do Screen.drawRectangle(85,45,115,75);
+		do Screen.setPenColor(Screen.DARKGREY());
+		do Screen.drawRectangle(125,45,155,75);
+		do Screen.setPenColor(Screen.LIGHTGREY());
+		do Screen.drawRectangle(165,45,195,75);
+		do Screen.setPenColor(Screen.RED());
+		do Screen.drawRectangle(205,45,235,75);
+		do Screen.setPenColor(Screen.YELLOW());
+		do Screen.drawRectangle(5,85,35,115);
+		do Screen.setPenColor(Screen.ORANGE());
+		do Screen.drawRectangle(45,85,75,115);
+		do Screen.setPenColor(Screen.LIME());
+		do Screen.drawRectangle(85,85,115,115);
+		do Screen.setPenColor(Screen.TEAL());
+		do Screen.drawRectangle(125,85,155,115);
+		
+		do Screen.setPenColor(Screen.BLACK());
+		
+		let x=0;
+		while (x<240){
+			do Screen.drawPixel(x,150);
+			let x=x+2;
+		}
+		do Screen.drawLine(120,200,170,200);
+		do Screen.drawLine(120,200,170,250);
+		do Screen.drawLine(120,200,120,250);
+		do Screen.drawLine(120,200,70,250);
+		do Screen.drawLine(120,200,70,200);
+		do Screen.drawLine(120,200,70,150);
+		do Screen.drawLine(120,200,120,150);
+		do Screen.drawLine(120,200,170,150);
+   
+		let map = Array.new(16);
+		let map[0]=768;
+		let map[1]=768;
+		let map[2]=896;
+		let map[3]=896;
+		let map[4]=960;
+		let map[5]=960;
+		let map[6]=16352;
+		let map[7]=16352;
+		let map[8]=8176;
+		let map[9]=8176;
+		let map[10]=3840;
+		let map[11]=3840;
+		let map[12]=1792;
+		let map[13]=1792;
+		let map[14]=768;
+		let map[15]=768;
+
+		do Screen.setPenColor(Screen.RED());
+		do Screen.drawBitMap(112, 260, 127, 275,map);
+		let x=120;
+		let vx=10;
+		while (true){
+			do Sys.wait(100);
+			do Screen.setPenColor(Screen.WHITE());
+			do Screen.drawCircle(x,300,5);
+			let x=x+vx;
+			do Screen.setPenColor(Screen.RED());
+			do Screen.drawCircle(x,300,5);
+			if (x>220) {
+				let vx=-10;
+			}
+			if (x<20) {
+				let vx=10;
+			}
+		}
+		return;
+	}
+}
