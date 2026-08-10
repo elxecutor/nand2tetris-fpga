@@ -10,6 +10,9 @@ module And(
 	input b,
 	output out
 );
-
 	// Put your code here:
+	wire inter;
+
+	nand(inter, a, b);
+	nand(out, inter, inter);
 endmodule
