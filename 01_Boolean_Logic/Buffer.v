@@ -10,4 +10,8 @@ module Buffer(
 );
 
 	// Put your code here:
+	wire inter;
+
+	nand(inter, in, in);
+	nand(out, inter, inter);
 endmodule
