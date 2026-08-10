@@ -10,4 +10,5 @@ module Not(
 );
 
 	// Put your code here:
+	nand(out, in, in);
 endmodule
