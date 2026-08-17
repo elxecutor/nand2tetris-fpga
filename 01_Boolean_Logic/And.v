@@ -11,8 +11,8 @@ module And(
 	output out
 );
 	// Put your code here:
-	wire inter;
+	wire n_ab;
 
-	nand(inter, a, b);
-	nand(out, inter, inter);
+	nand(n_ab, a, b);
+	nand(out, n_ab, n_ab);
 endmodule

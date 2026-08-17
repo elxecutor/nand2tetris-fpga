@@ -11,10 +11,10 @@ module Xor(
 );
 
 	// Put your code here:
-	wire na, nb, napb, nbpa;
-	nand(na, a, a);
-	nand(nb, b, b);
-	nand(napb, na, b);
-	nand(nbpa, nb, a);
-	nand(out, nbpa, napb);
+	wire n_a, n_b, t1, t2;
+	nand(n_a, a, a);
+	nand(n_b, b, b);
+	nand(t1, n_a, b);
+	nand(t2, n_b, a);
+	nand(out, t1, t2);
 endmodule
