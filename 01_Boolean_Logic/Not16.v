@@ -10,5 +10,10 @@ module Not16(
 );
 
 	// Put your code here:
-
+	genvar i;
+	generate
+		for (i = 0; i <= 15; i++) begin
+			nand(out[i], in[i], in[i]);
+		end
+	endgenerate
 endmodule
