@@ -11,5 +11,14 @@ module And16(
 );
 
 	// Put your code here:
+	wire [15:0] n_ab;
+
+	genvar i;
+	generate
+		for (i=0;i<=15;i++) begin
+			nand(n_ab[i], a[i], b[i]);
+			nand(out[i], n_ab[i], n_ab[i]);
+		end
+	endgenerate
 
 endmodule
