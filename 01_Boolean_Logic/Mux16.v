@@ -13,5 +13,17 @@ module Mux16(
 );
 
 	// Put your code here:
-
+	wire n_sel;
+	wire [15:0] a_n_sel, b_sel;
+	
+	nand(n_sel, sel, sel);
+	
+	genvar i;
+	generate
+		for (i=0;i<=15;i++) begin
+			nand(a_n_sel[i], a[i], n_sel);
+			nand(b_sel[i], b[i], sel);
+			nand(out[i], a_n_sel[i], b_sel[i]);
+		end
+	endgenerate
 endmodule
