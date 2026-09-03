@@ -16,8 +16,7 @@ module And16(
 	genvar i;
 	generate
 		for (i=0;i<=15;i++) begin
-			nand(n_ab[i], a[i], b[i]);
-			nand(out[i], n_ab[i], n_ab[i]);
+			And U1(.a(a[i]), .b(b[i]), .out(out[i]));
 		end
 	endgenerate
 

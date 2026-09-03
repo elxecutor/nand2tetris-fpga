@@ -12,6 +12,6 @@ module Buffer(
 	// Put your code here:
 	wire n_in;
 
-	nand(n_in, in, in);
-	nand(out, n_in, n_in);
+	Not U1(.in(in), .out(n_in));
+	Not U2(.in(n_in), .out(out));
 endmodule

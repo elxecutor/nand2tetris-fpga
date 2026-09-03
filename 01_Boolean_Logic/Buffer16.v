@@ -10,13 +10,10 @@ module Buffer16(
 );
 
 	// Put your code here:
-	wire [15:0] n_in;
 	genvar i;
 	generate
-		for (i=0;i<=15;i++) begin
-			nand(n_in[i], in[i], in[i]);
-			nand(out[i], n_in[i], n_in[i]);
+		for (i = 0; i <= 15; i++) begin
+			Buffer U1(.in(in), .out(out));
 		end
 	endgenerate
-
 endmodule

@@ -16,6 +16,10 @@ module DMux4Way(
 	output d
 );
 	
-	// Put your code here:	
+	// Put your code here:
+	wire t1, t2;
+	DMux U1(.in(in), .sel(sel[1]), .a(t1), .b(t2));
 
+	DMux U2(.in(t1), .sel(sel[0]), .a(a), .b(b));
+	DMux U3(.in(t2), .sel(sel[0]), .a(c), .b(d));
 endmodule

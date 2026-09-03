@@ -12,18 +12,11 @@ module Mux16(
 	output [15:0] out
 );
 
-	// Put your code here:
-	wire n_sel;
-	wire [15:0] a_n_sel, b_sel;
-	
-	nand(n_sel, sel, sel);
-	
+	// Put your code here:	
 	genvar i;
 	generate
 		for (i=0;i<=15;i++) begin
-			nand(a_n_sel[i], a[i], n_sel);
-			nand(b_sel[i], b[i], sel);
-			nand(out[i], a_n_sel[i], b_sel[i]);
+			Mux U1(.a(a[i], .b(b[i]), .sel(sel), .out(out[i])));
 		end
 	endgenerate
 endmodule

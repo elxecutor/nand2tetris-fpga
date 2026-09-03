@@ -10,5 +10,5 @@ module Not(
 );
 
 	// Put your code here:
-	nand(out, in, in);
+	Nand U1(.a(in), .b(in), .out(out));
 endmodule

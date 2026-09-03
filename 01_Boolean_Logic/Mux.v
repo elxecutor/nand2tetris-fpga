@@ -13,9 +13,9 @@ module Mux(
 );
 
 	// Put your code here:
-	wire n_sel, a_n_sel, b_sel;
-	nand(n_sel, sel, sel);
-	nand(a_n_sel, a, n_sel);
-	nand(b_sel, b, sel);
-	nand(out, a_n_sel, b_sel);
+	wire n_sel, t1, t2;
+	Not U1(.in(sel), .out(n_sel));
+	And U2(.a(a), .b(n_sel), .out(t1));
+	And U3(.a(b), .b(sel), .out(t2));
+	Or U4(.a(t1), .b(t2), .out(out));
 endmodule

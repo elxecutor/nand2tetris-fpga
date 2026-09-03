@@ -13,6 +13,6 @@ module And(
 	// Put your code here:
 	wire n_ab;
 
-	nand(n_ab, a, b);
-	nand(out, n_ab, n_ab);
+	Nand U1(.a(a), .b(b), .out(n_ab));
+	Nand U2(.a(n_ab), .b(n_ab), .out(out));
 endmodule
