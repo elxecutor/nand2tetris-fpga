@@ -10,32 +10,16 @@ module Or8Way(
 );
 
 	// Put your code here:
-	wire [7:0] n_in;
-	wire lvl11, lvl12, lvl13, lvl14, lvl21, lvl22, n_lvl11, n_lvl12, n_lvl13, n_lvl14, n_lvl21, n_lvl22;
-	genvar i;
-	generate
-		for (i=0;i<=7;i++) begin
-			nand(n_in[i], in[i], in[i]);
-		end
-	endgenerate
-
-	nand(lvl11, n_in[0], n_in[1]);
-	nand(n_lvl11, lvl11, lvl11);
-
-	nand(lvl12, n_in[2], n_in[3]);
-	nand(n_lvl12, lvl12, lvl12);
-
-	nand(lvl13, n_in[4], n_in[5]);
-	nand(n_lvl13, lvl13, lvl13);
-
-	nand(lvl14, n_in[6], n_in[7]);
-	nand(n_lvl14, lvl14, lvl14);
-
-	nand(lvl21, n_lvl11, n_lvl12);
-	nand(n_lvl21, lvl21, lvl21);
+	wire [3:0] t1;
+	wire [1:0] t2;
 	
-	nand(lvl22, n_lvl13, n_lvl14);
-	nand(n_lvl22, lvl22, lvl22);
+	Or U1(.a(in[0]), .b(in[1]), .out(t1[0]));
+	Or U2(.a(in[2]), .b(in[3]), .out(t1[1]));
+	Or U3(.a(in[4]), .b(in[5]), .out(t1[2]));
+	Or U4(.a(in[6]), .b(in[7]), .out(t1[3]));
 
-	nand(out, n_lvl21, n_lvl22);
+	Or U5(.a(t1[0]), .b(t1[1]), .out(t2[0]));
+	Or U6(.a(t1[2]), .b(t1[3]), .out(t2[1]));
+
+	Or U7(.a(t2[0]), .b(t2[1]), .out(out));
 endmodule

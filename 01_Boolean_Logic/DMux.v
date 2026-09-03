@@ -13,10 +13,8 @@ module DMux(
 );
 
 	// Put your code here:
-	wire n_sel, in_n_sel, in_sel;
-	nand(n_sel, sel, sel);
-	nand(in_n_sel, in, n_sel);
-	nand(a, in_n_sel, in_n_sel);
-	nand(in_sel, in, sel);
-	nand(b, in_sel, in_sel);
+	wire n_sel;
+	Not U1(.in(sel), .out(n_sel));
+	And U2(.a(in), .b(n_sel), .out(a));
+	And U3(.a(in), .b(sel), .out(b));
 endmodule

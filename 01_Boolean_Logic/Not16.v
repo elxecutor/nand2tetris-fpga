@@ -13,7 +13,7 @@ module Not16(
 	genvar i;
 	generate
 		for (i = 0; i <= 15; i++) begin
-			nand(out[i], in[i], in[i]);
+			Not U1(.in(in[i]), .out(out[i]));
 		end
 	endgenerate
 endmodule

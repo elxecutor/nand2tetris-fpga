@@ -19,5 +19,11 @@ module Mux8Way16(
 );
 
 	// Put your code here:
+	wire [15:0] t1, t2;
+
+	Mux4Way16 m1(a, b, c, d, sel[1:0], t1);
+	Mux4Way16 m2(e, f, g, h, sel[1:0], t2);
+
+	Mux16 m3(t1, t2, sel[2], out);
 
 endmodule

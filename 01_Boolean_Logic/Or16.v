@@ -16,9 +16,7 @@ module Or16(
 	genvar i;
 	generate
 		for (i=0;i<=15;i++) begin		
-			nand(n_a[i], a[i], a[i]);
-			nand(n_b[i], b[i], b[i]);
-			nand(out[i], n_a[i], n_b[i]);
+			Or U1(.a(a[i]), .b(b[i]), .out(out[i]));
 		end
 	endgenerate
 
